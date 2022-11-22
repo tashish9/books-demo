@@ -31,7 +31,7 @@ const FileDropZone = ({
     onDragOver: onBlur,
   });
   return (
-    <div className={`${fullWidth ? "w-full" : "w-max"} px-4 pb-6`}>
+    <div className={`${fullWidth ? "w-full" : "w-max"} px-4 pb-6 `}>
       <div className={`flex items-center justify-between font-medium`}>
         <label
           className={`${
