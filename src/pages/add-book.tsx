@@ -64,7 +64,7 @@ const AddBook: NextPage = () => {
         size: z
           .number()
           .nonnegative()
-          .lte(1048576, "Please upload file upto 10mb only"),
+          .lte(10485760, "Please upload file upto 10mb only"),
       },
       {
         errorMap: () => {
@@ -93,7 +93,6 @@ const AddBook: NextPage = () => {
       }
     },
     onSubmit: async (values) => {
-      console.log(values);
       const coverImageFormData = new FormData();
       coverImageFormData.append("cover", values.cover as unknown as File);
 
@@ -133,6 +132,7 @@ const AddBook: NextPage = () => {
       console.log(response);
     },
   });
+  console.log(formik.values.pdf);
 
   const handlePDFChange = (files: File[]) => {
     formik.setFieldValue("pdf", files[0]);

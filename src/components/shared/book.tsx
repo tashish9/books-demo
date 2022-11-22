@@ -14,7 +14,9 @@ const Book = ({ book }: { book: Book }) => {
       <div className="relative my-2 h-[272px] w-full overflow-hidden rounded-xl outline-blue-500 transition-all duration-75 hover:outline">
         <Image fill src={book.coverImage} alt="book cover"></Image>
       </div>
-      <h3 className="text-lg font-bold italic text-black">{book.title}</h3>
+      <h3 className="text-lg font-bold italic text-black line-clamp-2">
+        {book.title}
+      </h3>
       <p className=" text-sm text-gray-400 ">
         {JSON.parse(book.authors as string)}
       </p>
