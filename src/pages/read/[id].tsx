@@ -2,7 +2,7 @@ import { type Book } from "@prisma/client";
 import { type NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BiChevronLeft } from "react-icons/bi";
 import BookCover from "../../components/book-cover";
 import ContainedButton from "../../components/shared/buttons/contained-button";
@@ -29,7 +29,17 @@ const Page: NextPage = () => {
     }
   );
 
-  console.log(isReadingBook);
+  useEffect(() => {
+    const body = document.querySelector("body");
+
+    if (body) {
+      if (isReadingBook && body) {
+        body.style.overflow = "hidden";
+      } else {
+        body.style.overflow = "auto";
+      }
+    }
+  }, [isReadingBook]);
 
   return (
     <>
